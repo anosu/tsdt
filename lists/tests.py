@@ -41,14 +41,6 @@ class HomePageTest(TestCase):
         response = self.client.get("/")
         self.assertTemplateUsed(response, "home.html")
 
-    def test_home_page_returns_correct_html(self):
-        request = HttpRequest()
-        response = home_page(request)
-        html = response.content.decode().strip()
-        self.assertTrue(html.startswith("<html>"))
-        self.assertIn("<title>To-Do lists</title>", html)
-        self.assertTrue(html.endswith("</html>"))
-
 
 class NewListTest(TestCase):
 
